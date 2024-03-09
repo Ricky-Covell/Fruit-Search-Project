@@ -13,21 +13,15 @@ const fruits = ['Apple', 'Apricot', 'Avocado', 'Banana', 'Bilberry', 'Blackberry
 // FUNCTIONS
 
 // function that returns an array of all fruits that contain the searchbar string
-function search(str) {
+function search(searchbarText) {
 	// edge case for empty string
-	if (str === '') {
+	if (searchbarText === '') {
 		return [];
 	}
-
-	let results = [];
 	
-	// checks if searchbar string is in each fruit regardless of lettercase
-	for (let fruit of fruits) {
-		if (fruit.toLowerCase().includes(str.toLowerCase())) {
-			results.push(fruit);
-		}
-	}
-	return results;
+	// returns array of fruits element that contain searchbarText, regardless of case
+	return fruits.filter((fruit) => fruit.toLowerCase().includes(searchbarText.toLowerCase()))
+
 }
 
 
