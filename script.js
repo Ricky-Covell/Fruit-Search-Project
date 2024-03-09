@@ -27,10 +27,10 @@ function search(searchbarText) {
 
 
 // function that creates an li for each element matched in fruits array and appends each li to the suggestions ul 	  (up to 5 times)
-function showSuggestions(matchesInp) {
+function displaySuggestions(matches) {
 	// loop stops after 5 iterations OR the end of the array
-	for (let i = 0; (i < 5) && (i < matchesInp.length); i++) {
-		let match = matchesInp[i];
+	for (let i = 0; (i < 5) && (i < matches.length); i++) {
+		let match = matches[i];
 		const newLi = document.createElement('li');
 		newLi.classList.add('suggestion')
 		newLi.innerText = match;
@@ -39,15 +39,17 @@ function showSuggestions(matchesInp) {
 }
 
 
+
 // checks if the element clicked on is an li      (used to avoid triggering an action if a ul is clicked)
 function isClickedElementAnLi(event) {
-	if (event.target.classList[0] === "suggestion") {
-		return true;
-	} else {
-		return false;
-	}
+	return event.target.classList[0] === "suggestion"
 }
 
+
+// function that deletes current suggestions 
+function clearSuggestions() {
+    suggestionsList.innerHTML = '';
+}
 
 
 
@@ -57,7 +59,7 @@ function isClickedElementAnLi(event) {
 // handles behavior for when text is typed into the searchbar 
 input.addEventListener('keyup', (event) => {
 	// delete all text suggestions
-	suggestionsList.innerHTML = '';
+	clearSuggestions();
 
 	//gets the current string from the searchbar 
 	let currentText = input.value;
@@ -66,7 +68,7 @@ input.addEventListener('keyup', (event) => {
 	let matches = search(currentText);
 
 	// creates an li for up to five suggestions, aphabetically, in 'matches' array  
-	showSuggestions(matches);
+	displaySuggestions(matches);
 	
 	// reassigns 'suggestion' variable to list of all li's
 	suggestionClass = document.querySelectorAll('li');
@@ -86,7 +88,7 @@ suggestionsList.addEventListener('click', (event) => {
 	}
 
 	// delete all text suggestions
-	suggestionsList.innerHTML = '';
+	clearSuggestions();
 });
 
 
