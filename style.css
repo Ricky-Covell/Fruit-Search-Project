@@ -1,0 +1,67 @@
+/* UNIVERSAL STYLING */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+
+/* STYLING FOR BODY */
+body {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+/* STYLING FOR search-container */
+.search-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(0.25turn, rgb(255, 202, 102), rgb(255, 85, 0));
+}
+
+.search-container input,
+.search-container .suggestions {
+  font-size: 30px;
+  width: 30%;
+  margin: 0px 35%;
+  background: rgba(255, 255, 255, 0.154);
+  list-style-type: none;
+}
+
+
+
+/* GETS RID OF BULLET POINTS AND INDENTATION FOR UL*/
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+/* STYLING FOR INDIVIDUAL SUGGESTIONS */
+.suggestion {
+  background: rgba(255, 255, 255, 0.154);
+  list-style-type: none;
+  padding: 10px;
+}
+
+.suggestion:hover {
+  position: relative;
+  background: aquamarine;
+}
+
+
+
+/* STYLING FOR INPUT BAR */
+.search-container input {
+  font-family: inherit;
+  margin-top: 10%;
+  padding: 10px 0px;
+  padding-left: 13px;
+  border: 0px;
+ }
+
